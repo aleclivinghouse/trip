@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title></title>
+       {% load static %}
+     <!-- The line above tells Django to be ready to listen for static files -->
+     <link rel="stylesheet" href="{% static 'ourApp/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+     <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->
+     </head>
+   <body>
+       <h1>This is the survey assignment</h1>
+
+
+<!--  This is our first form-->
+
+<h1 style="color": "{{color}}"; >word: {{word}}</h1>
+<h1>Name: {{name}}</h1>
+<h1>Language: {{language}}</h1>
+<h1>Comment: {{comment}}</h1>
+
+
+   </body>
+ </html>

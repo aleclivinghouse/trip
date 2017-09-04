@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+	<h3>Hello {{request.session.user_name}}</h3>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Index</title>
+</head>
+<body>
+<a href="/logout">Logout</a>
+<a href="#">Home</a>
+	<h1>People Who Poked You</h1>
+	{% for x in all_users %}
+		<tr>
+			<td>{{x.name}}</td>
+			<td>Poked has poked</td>
+			<td> </td>
+			<td>{{x.poked_another}}</td>
+			<td>Times</td>
+<!--			<td>{{x.poked_another}}</td>-->
+<!--    get the id of the person being poked-->
+	{% endfor %}
+	
+	<h1>People You may want to poke</h1>
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Alias</td>
+		<td>Email Address</td>
+		<td>Poke Histroy</td>
+<!--		<td>I poked</td>-->
+	</tr>
+	{% for x in other_users %}
+		<tr>
+			<td>{{x.name}}</a></td>
+			<td>{{x.user_name}}</td>
+			<td>{{x.email}}</td>
+			<td>{{x.were_poked}}</td>
+<!--			<td>{{x.poked_another}}</td>-->
+<!--    get the id of the person being poked-->
+	        <td><a href="/poke/{{x.id}}">Poke</a></td>
+	{% endfor %}
+		</tr>
+	
+		
+	
+	
+</table>
+
+	
+	
+
+	
+</body>
+</html>	
+	
+</body>
+</html>

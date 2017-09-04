@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title></title>
+       {% load static %}
+     <!-- The line above tells Django to be ready to listen for static files -->
+     <!-- <link rel="stylesheet" href="{% static 'ourApp/css/main.css' %}" media="screen" title="no title"  charset="utf-8"> -->
+     <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->
+     </head>
+   <body>
+       <h1>This is the amadon app</h1>
+
+
+<table>
+  <tr>
+    <td>Item</td>
+    <td>Price</td>
+    <td>Actions</td>
+  </tr>
+  {% for x in product_list %}
+  <tr>
+    <td>{{x.name}}</td>
+    <td>{{x.price}}</td>
+    <td>
+      <form action="/process" method="post">
+        {% csrf_token %}
+  <select name="quantity">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <input type="hidden" name="price" value="{{ x.price }}">
+  <input type="submit" value = "Buy!">
+</form>
+</td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+   </body>
+ </html>

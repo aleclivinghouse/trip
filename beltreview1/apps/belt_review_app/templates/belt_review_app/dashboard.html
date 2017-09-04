@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+	<h3>Welcome {{request.session.user_name}}</h3>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Index</title>
+</head>
+<body>
+<a href="/addbook">Add Book and Review</a>
+<a href="/logout">Logout</a>
+
+<h1>Recent Book Reviews</h1>
+
+
+{% for review in reviews %}
+<h3><a href="/books/{{review.book.id}}">{{review.book.title}}</a></h3>
+<p>written by:<a>{{review.book.author}}</a></p>
+<p>posted by: <a href = "/user/{{review.user.id}}">{{review.user.name}}</a></p>
+<p>{{review.text}}</p>
+<p>{{review.rating}}</p>
+<p>{{review.created_at}}</p>
+{% endfor %}
+<h2>Other Books With Reviews</h2>
+{% for book in books %}
+<h4>{{book.title}}</h4>
+{% endfor %}
+
+
+
+
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Show</title>
+</head>
+<body>
+<h3>This is the courses assignment</h3>
+<form action="/add" method="post">
+	{% csrf_token %}
+Name: <p><input type="text" name="name"></p>
+Description: <p><input type="textarea" name="description"></p>
+<p><input type="submit" value="add"</p>
+</form>
+
+<table>
+  <tr>
+    <td>Course Name</td>
+    <td>Description</td>
+    <td>Date Added</td>
+    <td>Actions</td>
+  </tr>
+  {% for course in all_courses %}
+  <tr>
+    <td>{{course.name}}</td>
+    <td>{{course.description}}</td>
+    <td>{{course.created_at}}</td>
+    <td><a href="deletepage/{{course.id}}">remove</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

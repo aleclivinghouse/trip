@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title></title>
+       {% load static %}
+     <!-- The line above tells Django to be ready to listen for static files -->
+     <link rel="stylesheet" href="{% static 'ourApp/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+     <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->
+     </head>
+   <body>
+       <h1>This is the semi restful users assignment</h1>
+        <h1>This is the dashboard</h1>
+
+ <table>
+    <tr>
+      <td>id</td>
+		<td>Full Name</td>
+		<td>Email</td>
+		<td>Created At</td>
+		<td>Actions</td>
+    </tr>
+    <!-- all_users is the name of the key in the context dictionary -->
+{% for user in all_users %}
+    <tr>
+     <td>{{user.id}}</td>
+     <td>{{user.firstname}}{{user.lastname}}</td>
+     <td>{{user.email}}</td>
+     <td>{{user.created_at}}</td>
+     <td><a href = "delete/{{user.id}}">delete</a>|<a href = "edit/{{user.id}}">update</a></td>
+    </tr>
+{% endfor %}
+</table>
+<!-- <form action="/blogs/create" method="post">
+	{% csrf_token %}
+	Blog Name: <input type="text" name="name" placeholder="blog name">
+    Description: <textarea name="desc" placeholder="description"></textarea>
+	<input type="submit" value="submit">
+</form> -->
+
+   </body>
+ </html>

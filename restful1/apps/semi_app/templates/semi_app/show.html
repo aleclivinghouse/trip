@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Show</title>
+</head>
+<body>
+<h3>User {{user.id}}</h3>
+<p>Full name: {{user.firstname}} {{user.lastname}}</p>
+<p>Email: {{user.email}}</p>
+<p>Created At: {{user.created_at}}</p>
+<a href="{{user.id}}/edit">Edit</a> | <a href="/{{user.id}}/destroy">Delete</a>
+</body>
+</html>

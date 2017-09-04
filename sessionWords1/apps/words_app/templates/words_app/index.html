@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title></title>
+       {% load static %}
+     <!-- The line above tells Django to be ready to listen for static files -->
+     <link rel="stylesheet" href="{% static 'words_app/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+     <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->
+     </head>
+   <body>
+       <h1>This is the survey assignment</h1>
+
+
+<!--  This is our first form-->
+
+<form action="/process" method="post">
+	{% csrf_token %}
+Enter A Word: <input type="text" name="word" placeholder="word">
+Choose A Color:
+<input type="radio" name="color" value="red" checked> Red<br>
+<input type="radio" name="color" value="green"> Green<br>
+<input type="radio" name="color" value="blue"> Blue
+
+
+ <input type="checkbox" name="font" value="yes">Show in Big Fonts!!!
+
+<input type="submit" value="submit">
+</form>
+
+<!-- This is where we will show the words -->
+{% for x in request.session.words %}
+<p>
+  <span class="{{x.color}}  {{x.font}}">{{x.word}}</span> added on
+  {{x.time}} {{x.date}}
+</p>
+ {% endfor %}
+
+   </body>
+ </html>

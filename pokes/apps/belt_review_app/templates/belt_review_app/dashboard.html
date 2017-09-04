@@ -1,0 +1,57 @@
+<html>
+<head>
+</head>
+	<h3>Hello {{request.session.user_name}}</h3>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Index</title>
+</head>
+<body>
+<a href="/logout">Logout</a>
+<a href="#">Home</a>
+	<h1>People Who Poked You</h1>
+	<table>
+
+	{% for y in user_poked_you %}
+	<tr>
+			<td>{{y.user_poker.name}} has poked you</td>
+	</tr>
+	{% endfor %}
+</table>
+	<h1>People You may want to poke</h1>
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Alias</td>
+		<td>Email Address</td>
+		<td>Poke Histroy</td>
+<!--		<td>I poked</td>-->
+	</tr>
+	{% for x in other_users %}
+		<tr>
+			<td>{{x.name}}</a></td>
+			<td>{{x.user_name}}</td>
+			<td>{{x.email}}</td>
+			<td>{{x.poke_history}}</td>
+			<!-- <td>{{x.user.were_poked}}</td -->
+			<td><a href=/process/{{x.id}}>Poke!</a></td>
+			<td>{{x.}}
+	{% endfor %}
+		</tr>
+
+
+
+
+</table>
+
+
+
+
+
+</body>
+</html>
+
+</body>
+</html>
